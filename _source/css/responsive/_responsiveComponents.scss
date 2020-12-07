@@ -1,0 +1,11 @@
+// card plan
+@media screen and (max-width: 1180px) {
+	.c-cardPlan.is-bestPlan {
+		@include transforms(scale(1), center);
+	}
+}
+@media screen and (max-width: 640px) {
+	.c-cardPlan {
+		border: 1px solid $lightGray;
+	}
+}

@@ -1,0 +1,1003 @@
+body {
+	padding-top: 50px;
+}
+
+// libraries
+.swiper-pagination {
+	display: block;
+	position: relative;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	margin-top: 15px;
+	width: 100%;
+	height: 10px;
+	z-index: 2;
+	.swiper-pagination-bullet-active {
+		background: $primary;
+	}
+}
+.swiper-button-next,
+.swiper-button-prev {
+	@include roundedAll(22px);
+	width: 44px;
+	height: 44px;
+	background-color: $primary;
+	background-image: url(#{$media_assets}caret-right.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50%;
+	cursor: pointer;
+	z-index: 2;
+}
+.swiper-button-prev {
+	background-image: url(#{$media_assets}caret-left.svg);
+}
+.swiper-button-disabled {
+	pointer-events: auto !important;
+}
+
+// l-
+.l-nav {
+	@include transition($ease: ease-in);
+	display: block;
+	width: 100%;
+	max-width: $maxRowWidth;
+	margin: 0 auto;
+	padding: 0;
+	background: $primary;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	&__container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		height: 50px;
+		align-items: center;
+		justify-content: space-between;
+	}
+	&__brand {
+		@include transition();
+		flex: 1 1 auto;
+		display: block;
+		position: relative;
+		top: 30px;
+		a, img {
+			display: block;
+			margin: 0 auto;
+			width: 100%;
+			max-width: 140px;
+		}
+	}
+	&__contentHero {
+		flex: 1 1 auto;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		align-items: center;
+		position: relative;
+		z-index: 5;
+	}
+	&__cart,
+	&__signup,
+	&__ctaWhats {
+		flex: 0 1 auto;
+	}
+	&__menu {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		> li {
+			display: block;
+			position: relative;
+			a {
+				@include letterSpacing(60);
+				color: $white;
+				cursor: pointer;
+				padding: 0 20px;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+	&__maskMenu {
+		@include u-hideElement();
+		z-index: 2;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		min-height: 100vh;
+		display: block;
+		background: rgba(0,0,0,0.5);
+		&.is-active {
+			@include u-showElement();
+		}
+	}
+	.c-hamburguer {
+		@include transforms(translateY(-50%), center);
+		display: none;
+		position: absolute;
+		right: 15px;
+		top: 50%;
+		z-index: 4;
+		.c-hamburguer__hero {
+			@include transforms($property: rotate(0deg));
+			@include transition();
+			cursor: pointer;
+			display: block;
+			height: 26px;
+			position: relative;
+			width: 30px;
+			.bar {
+				@extend .u-showElement;
+				@include roundedAll(1px);
+				@include transforms($property: rotate(0deg));
+				@include transition();
+				background: $mutedGray;
+				display: block;
+				height: 2px;
+				position: absolute;
+				width: 100%;
+				&.bar_1 {
+					top: 0;
+					left: 0;
+				}
+				&.bar_2 {
+					top: 12px;
+					left: 0;
+				}
+				&.bar_3 {
+					top: 24px;
+					left: 0;
+				}
+			}
+		}
+		&.is-active {
+			background: $primaryDark;
+			right: 15px;
+			@include roundedAll(20px);
+			.c-hamburguer__hero {
+				@include transforms($property: rotate(180deg) scale(0.7));
+				.bar {
+					background: $white;
+					&.bar_1 {
+						top: 12px;
+						@include transforms($property: rotate(45deg));
+					}
+					&.bar_2 {
+						@extend .u-hideElement;
+					}
+					&.bar_3 {
+						top: 12px;
+						@include transforms($property: rotate(-45deg));
+					}
+				}
+			}
+		}
+	}
+	&.hidden {
+		top: -300px;
+	}
+	&.scrolled {
+		background: $primaryDark;
+		.l-nav__brand {
+			@include flexWidth(110px);
+			top: 5px;
+		}
+		.l-nav__signUp,
+		.l-nav__ctaWhats {
+			.c-btn {
+				&:hover {
+					background: $primary;
+				}
+			}
+		}
+		.c-hamburguer {
+			&.is-active {
+				margin-top: 5px;
+			}
+		}
+	}
+}
+.l-footer {
+	background: $primaryDark;
+	padding: 30px 0;
+}
+.l-headerHomeDesk {
+	display: block;
+	position: relative;
+	z-index: 2;
+	.ns_header .box {
+		height: 380px;
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
+	.ns_header .box {
+		height: 380px;
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
+	.ns_header .right {
+		position: absolute; /* remove from flow so sunset is placed on top */
+		background: url(#{$media_content}righ1.jpg) no-repeat;
+		background-size: cover;
+		background-position: center;
+		width: 60%;
+		right: 0;
+		transition: width 0.8s ease-in-out;
+		/*box-shadow: 0 0 10px rgba(0, 0, 0, .7);*/
+	}
+	.ns_header .right {
+		position: absolute; /* remove from flow so sunset is placed on top */
+		background: url(#{$media_content}righ1.jpg) no-repeat;
+		background-size: cover;
+		background-position: center;
+		width: 60%;
+		right: 0;
+		transition: width 0.8s ease-in-out;
+		/*box-shadow: 0 0 10px rgba(0, 0, 0, .7);*/
+	}
+	.ns_header .slider {
+		/* set initial width */
+		width: 60%;
+		/* hide the content that overflows (to allow second box to show through) */
+		overflow: hidden;
+		display: inline-block;
+		/* skew container so that it has angled edge, and set up transition */
+		transform: skewX(-20deg);
+		transition: width 0.8s ease-in-out;
+		/* give negative margin to remove gap caused by left hand skew */
+		margin-left: -100px;
+		/* hide pointer events for unseen content */
+		pointer-events: none;
+	}
+	.ns_header .slider {
+		/* set initial width */
+		width: 60%;
+		/* hide the content that overflows (to allow second box to show through) */
+		overflow: hidden;
+		display: inline-block;
+		/* skew container so that it has angled edge, and set up transition */
+		transform: skewX(-20deg);
+		transition: width 0.8s ease-in-out;
+		/* give negative margin to remove gap caused by left hand skew */
+		margin-left: -100px;
+		/* hide pointer events for unseen content */
+		pointer-events: none;
+	}
+	.ns_header .left {
+		/* skew back by negative of parent’s skew so contents is upright */
+		transform: skewX(20deg);
+		margin-left: 100px;
+		/* give margin to push content away from left slanted edge */
+		background: url(#{$media_content}left1.jpg) center center no-repeat;
+		background-position: center;
+		background-size: cover;
+		pointer-events: auto; /* allow pointer events for the box */
+		/*text-align: center;*/
+		/*display: flex;*/
+	}
+	.ns_header .left {
+		/* skew back by negative of parent’s skew so contents is upright */
+		transform: skewX(20deg);
+		margin-left: 100px;
+		/* give margin to push content away from left slanted edge */
+		background: url(#{$media_content}left1.jpg) center center no-repeat;
+		background-position: center;
+		background-size: cover;
+		pointer-events: auto; /* allow pointer events for the box */
+		/*text-align: center;*/
+		/*display: flex;*/
+	}
+	.ns_header .left:before, .ns_header .right:before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: black;
+		opacity: 0.6;
+		content: " ";
+	}
+	.ns_header .left:before, .ns_header .right:before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: black;
+		opacity: 0.6;
+		content: " ";
+	}
+	.ns_header .left:before, .ns_header .right:before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: black;
+		opacity: 0.6;
+		content: " ";
+	}
+	.ns_header .slider:hover {
+		width: 80%;
+	}
+	.ns_header .slider:hover {
+		width: 80%;
+	}
+	.ns_header .box:hover:not(.left) {
+		width: 80% !important;
+		transition: width 0.6s ease-in-out;
+	}
+	.ns_header .box:hover:not(.left) {
+		width: 80% !important;
+		transition: width 0.6s ease-in-out;
+	}
+	.ns_header .left {
+		text-align: center;
+		/*display: flex;*/
+		/*flex-direction: row;*/
+		z-index: 2;
+	}
+	.ns_header .left {
+		text-align: center;
+		/*display: flex;*/
+		/*flex-direction: row;*/
+		z-index: 2;
+	}
+	.ns_header .left img {
+		max-width: 100%;
+		height: auto;
+		z-index: 3;
+	}
+	.ns_header .left img {
+		max-width: 100%;
+		height: auto;
+		z-index: 3;
+	}
+	.ns_header img {
+		position: relative;
+	}
+	.ns_header img {
+		position: relative;
+	}
+	.ns_header .right:hover + .slider {
+		width: 40% !important;
+	}
+	.ns_header .right:hover + .slider {
+		width: 40% !important;
+	}
+}
+.l-headerHomeMobile {
+	display: block;
+	position: relative;
+	z-index: 2;
+	.swiper__headerHome {
+		position: relative;
+		display: block;
+	}
+	.swiper-slide {
+		display: block;
+		position: relative;
+	}
+	.swiper-pagination {
+		position: absolute;
+		bottom: 25px;
+		margin-top: 0;
+		top: inherit;
+	}
+	&__cover {
+		display: block;
+		width: 100%;
+		min-height: 400px;
+		object-fit: cover;
+		object-position: center;
+	}
+	&__content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		padding: 15px;
+		img {
+			display: block;
+			max-width: 100%;
+			max-height: 300px;
+			object-fit: contain;
+			object-position: center;
+		}
+	}
+}
+.l-headerProduct {
+	display: block;
+	width: 100%;
+	position: relative;
+	height: 400px;
+	z-index: 1;
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		z-index: 2;
+		display: block;
+		width: 100%;
+		height: 130%;
+		background: rgb(0,0,0);
+		background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgba(255,255,255,0) 100%);
+	}
+	img {
+		@include transition();
+		filter: blur(1px);
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+	.u-containerBig {
+		padding-bottom: 80px;
+		z-index: 3;
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+	h1 {
+		@include transition();
+		@include defaulth1();
+		text-align: left;
+		font-weight: $fwBold;
+		color: $white;
+		text-align: center;
+	}
+	&:hover {
+		img {
+			filter: blur(0px);
+		}
+		.u-container {
+			padding-bottom: 30px;
+		}
+	}
+}
+.l-innerPage {
+	background: $secondary;
+	padding: 60px 0;
+	h2 {
+		@include defaulth2;
+		color: $white;
+		text-align: left;
+		margin-bottom: 15px;
+	}
+	h3 {
+		@include defaulth3;
+		color: $white;
+		text-align: left;
+	}
+	h4 {
+		@include defaulth4;
+		color: $white;
+		text-align: left;
+	}
+	p {
+		@include paragrafos();
+		color: $white;
+		text-transform: none;
+	}
+}
+
+// s-
+.s-categories {
+	@include transition();
+	background: $primary;
+	margin-top: -5px;
+	position: sticky;
+	top: 0;
+	display: block;
+	z-index: 4;
+	max-height: 50px;
+	border-bottom: 1px solid $primaryDark;
+	.u-containerFlex {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: nowrap;
+		height: 50px;
+		padding: 0;
+	}
+	&__search {
+		@include flexWidth(320px);
+	}
+	&__menu {
+		@include scroll($size: 4px, $bg: $primaryDark, $bar: $primaryLight);
+		flex: 1 1 auto;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		flex-wrap: nowrap;
+		padding: 0 10px;
+		overflow-x: auto;
+	}
+
+	&__tags,
+	&__categories {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		position: relative;
+		align-items: center;
+		height: 50px;
+		a {
+			@include letterSpacing(60);
+			display: block;
+			min-width: 0;
+			padding: 0 15px;
+		}
+	}
+
+	&__tags {
+		margin-right: 10px;
+		&:after {
+			content: '';
+			display: block;
+			background: $primaryLight;
+			position: absolute;
+			right: -10px;
+			top: 15px;
+			width: 1px;
+			height: 20px;
+		}
+		a {
+			color: $white;
+		}
+	}
+	&__categories {
+		margin-left: 10px;
+	}
+
+	&.js-customCss {
+		z-index: 8;
+	}
+}
+.s-gamesGrid {
+	background: $secondaryLight;
+	padding: 50px 0;
+	h1 {
+		display: block;
+		position: relative;
+		width: 100%;
+		text-align: center;
+		&:before {
+			content: '';
+			display: block;
+			width: 100%;
+			height: 1px;
+			background: $secondary;
+			position: absolute;
+			top: 50%;
+			left: 0;
+		}
+		span {
+			@include defaulth2;
+			color: $white;
+			font-size: 28px;
+			display: inline-block;
+			padding: 0 30px;
+			background: $secondaryLight;
+			position: relative;
+			z-index: 2;
+		}
+	}
+	.swiper__gamesGrid {
+		margin-top: 30px;
+		overflow: hidden;
+		.swiper-slide {
+			display: flex;
+			height: auto;
+		}
+	}
+	.swiper-pagination {
+		margin-top: 25px;
+		margin-bottom: 10px;
+	}
+	.moreGames {
+		display: block;
+		width: 100%;
+		margin-top: 60px;
+		a {
+			margin: 0 auto;
+		}
+	}
+}
+.s-plans {
+	display: block;
+	background: $secondary;
+	padding: 30px 0 40px 0;
+	h1 {
+		@include defaulth1();
+		color: $white;
+	}
+	h2 {
+		@include defaulth2();
+	}
+	&__help {
+		@include roundedAll();
+		max-width: 460px;
+		width: 100%;
+		padding: 30px;
+		border: 1px solid $mutedGray;
+		margin: 50px auto 0 auto;
+		h3 {
+			@include defaulth3;
+			margin-bottom: 10px;
+		}
+		p {
+			@include paragrafos();
+			text-align: center;
+		}
+	}
+	.u-container {
+		&:before {
+			@include transition();
+			content: '';
+			position: absolute;
+			top: -40px;
+			left: -160px;
+			display: block;
+			width: 278px;
+			height: 500px;
+			background: url(#{$media_content}overlay_effect.png);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+			z-index: 4;
+		}
+	}
+	&.js-customCss {
+		.u-container {
+			&:before {
+				top: 0;
+			}
+		}
+	}
+}
+@media screen and (min-width: 1180px) {
+	.s-plans__list {
+		margin-top: 20px;
+		display: flex;
+		flex-direction: row;
+		position: relative;
+		justify-content: center;
+		z-index: 5;
+		@include calcWidthForPositionNegative(-15px);
+		> div {
+			@include flexWidth(33.3%);
+			display: block;
+			padding: 15px;
+		}
+	}
+}
+
+.s-gamePage {
+	position: relative;
+	z-index: 4;
+	&__content {
+		@include flexWidth(70%);
+		padding-right: 60px;
+	}
+	&__aside {
+		@include flexWidth(30%);
+	}
+	
+	&__article {
+		margin-bottom: 60px;
+		&.--description {
+			.descriptionContent {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: nowrap;
+				align-items: flex-start;
+			}
+			.descriptionContent figure {
+				@include flexWidth(270px);
+				position: sticky;
+				top: 190px;
+				a {
+					@include roundedAll();
+					@include transition();
+					overflow: hidden;
+					display: block;
+					width: 100%;
+					img {
+						display: block;
+						width: 100%;
+					}
+					&:hover {
+						@include transforms(scale(1.02), center);
+					}
+				}
+			}
+			.descriptionContent > div {
+				padding-left: 60px;
+				display: block;
+				flex: 1 1 auto;
+			}
+			.list__categories {
+				margin-bottom: 25px;
+			}
+			.list__topics {
+				margin-top: 25px;
+			}
+			.list__tags {
+				margin-top: 25px;
+			}
+		}
+		&.--trailer {
+			iframe {
+				display: block;
+				width: 100%;
+			}
+		}
+		&.--gallery {
+			a {
+				@include roundedAll();
+				img {
+					@include transition();
+				}
+				&:hover {
+					img {
+						@include transforms(scale(1.1), center);
+					}
+				}
+			}
+			.c-responsiveGrid {
+				@include calcWidthForPositionNegative(-10px);
+				li {
+					padding: 10px;
+				}
+			}
+		}
+		&.--jogar {
+			position: sticky;
+			top: 190px;
+			.p-login {
+				margin-top: 15px;
+			}
+			.c-btn {
+				max-width: 100%;
+				margin-bottom: 10px;
+				&:last-of-type {
+					margin-bottom: 0;
+				}
+			}
+		}
+		&.--expansions {
+			ul {
+				@include calcWidthForPositionNegative(-10px);
+			}
+			li {
+				padding: 10px;
+				&:last-of-type {
+					margin-bottom: 0;
+				}
+			}
+		}
+		&.--relationed {
+			.c-responsiveGrid {
+				flex-wrap: nowrap;
+				justify-content: flex-start;
+				overflow: hidden;
+			}
+		}
+		&:first-of-type {
+			margin-top: 60px;
+		}
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+	
+	.list__categories {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		li {
+			margin-right: 5px;
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+		a {
+			@include roundedAll();
+			display: block;
+			height: 24px;
+			line-height: 26px;
+			padding: 0 15px;
+			background: $primary;
+			color: $white;
+			text-transform: uppercase;
+			font-size: 14px;
+			font-weight: $fwBold;
+			&:hover {
+				background: $primaryDark;
+			}
+		}
+	}
+	.list__tags {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		li {
+			margin-right: 5px;
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+		a {
+			@include roundedAll();
+			display: block;
+			height: 24px;
+			line-height: 26px;
+			padding: 0 15px;
+			background: $secondaryDark;
+			color: $lightGray;
+			text-transform: uppercase;
+			font-size: 14px;
+			font-weight: $fwBold;
+			&:hover {
+				background: $lightGray;
+				color: $text;
+			}
+		}
+	}
+	.list__topics {
+		li {
+			list-style-type: disc;
+			list-style-position: inside;
+			display: list-item;
+			color: $primary;
+			p, strong {
+				display: inline-block;
+				font-size: 16px;
+				color: $white;
+			}
+		}
+	}
+}
+.s-navGamePage {
+	@include transition();
+	padding: 20px 0;
+	position: sticky;
+	z-index: 6;
+	top: 50px;
+	margin-top: -79px;
+	.productMenu {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		flex-wrap: wrap;
+		justify-content: center;
+		a {
+			display: inline-block;
+			max-width: inherit;
+			min-width: auto;
+		}
+	}
+	.c-btn.--invisible {
+		pointer-events: all;
+		color: $white;
+		&:hover {
+			background: rgba(0,0,0,0.75);
+			color: $primaryLight;
+		}
+	}
+	&.js-customCss {
+		background: $secondaryLight;
+		.c-btn.--invisible {
+			color: $white;
+			&:hover {
+				background: $lightGray;
+			}
+		}
+	}
+}
+.s-warn {
+	padding-top: 70px;
+	padding-bottom: 70px;
+	background: $primaryDark;
+	.u-container {
+		max-width: 640px;
+	}
+	&__content {
+		@include roundedAll(10px);
+		border: 2px solid $primaryLight;
+		padding: 30px;
+		position: relative;
+	}
+	.js-removeWarn {
+		@include letterSpacing(30);
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		display: block;
+		@include roundedAll(11px);
+		height: 22px;
+		line-height: 22px;
+		width: 60px;
+		background: $primaryLight;
+		color: $white;
+		text-transform: uppercase;
+		font-size: 14px;
+		font-weight: bold;
+		text-align: center;
+		cursor: pointer;
+		&:hover {
+			background: $primary;
+			color: $white;
+		}
+	}
+	img {
+		display: block;
+		width: 80px;
+		margin: 0 auto;
+	}
+	p {
+		@include paragrafos($tc: $white);
+		text-align: center;
+	}
+	h2 {
+		@include defaulth2;
+		color: $white;
+	}
+	h3 {
+		@include defaulth3;
+		color: $white;
+	}
+	.c-btn {
+		background: $primaryLight;
+		margin: 0 auto;
+		margin-bottom: 30px;
+		&:hover {
+			background: $primary;
+		}
+	}
+}
+
+// Innerpages modifiers
+.bodyInnerPage {
+	.l-nav {
+		background: $primaryDark;
+		&__brand {
+			@include flexWidth(110px);
+			top: 5px;
+		}
+	}
+}
+
+// #
+#page__products {
+	padding-top: 0;
+}

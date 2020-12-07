@@ -1,0 +1,159 @@
+// calc for all
+// @include calc(width, 100%, '-', 100px);
+@mixin calc($property, $v1, $op, $v2) {
+  #{$property}: expression(#{$v1 $op $v2});
+  #{$property}: -ms-calc(#{$v1 $op $v2});
+  #{$property}: -moz-calc(#{$v1 $op $v2});
+  #{$property}: -webkit-calc(#{$v1 $op $v2});
+  #{$property}: calc(#{$v1 $op $v2});
+}
+
+@mixin calcWidthForPositionNegative($negativePosition) {
+	position: relative;
+	left: $negativePosition;
+	@include calc(width, 100%, '+', $negativePosition * -2);
+}
+
+@mixin roundedAll($radius: $defaultRadius) {
+	border-radius: $radius;
+}
+@mixin rounded($vert, $hor, $radius) {
+	border-#{$vert}-#{$hor}-radius: $radius;
+}
+
+@mixin transition($property: all, $duration:0.15s, $ease:linear, $delay: 0){
+  	-webkit-transition: $property $duration $ease;
+  	-moz-transition: $property $duration $ease;
+  	-o-transition: $property $duration $ease;
+  	-ms-transition: $property $duration $ease;
+  	transition: $property $duration $ease;
+  	-webkit-transition-delay: $delay;
+  	-moz-transition-delay: $delay;
+  	-o-transition-delay: $delay;
+  	-ms-transition-delay: $delay;
+  	transition-delay: $delay;
+}
+
+@mixin letterSpacing($psValue: 50) {
+	// the value of @psValue should be the same of the Photoshop (or xd)
+	// @psValue should be only numbers
+	letter-spacing: $psValue / 1000#{'em'};
+}
+
+@mixin opacity($opacity: 1) {
+	-webkit-opacity: $opacity;
+	-moz-opacity: $opacity;
+	-o-opacity: $opacity;
+	opacity: $opacity;
+	$opperc: $opacity * 100; // IE
+}
+
+@mixin pb($pb: 100%) {
+	-webkit-filter: grayscale($pb);
+	filter: grayscale($pb);
+}
+
+@mixin gradient($angle: 90deg, $start: $primary, $end: $primaryDark) {
+	background: $start;
+	background: linear-gradient($angle, $start 0%, $end 100%);
+}
+
+@mixin transforms($property, $origin: center) {
+	-webkit-transform: $property;
+	-moz-transform: $property;
+	-o-transform: $property;
+	-ms-transform: $property;
+	transform: $property;
+	-webkit-transform-origin: $origin;
+	-moz-transform-origin: $origin;
+	-o-transform-origin: $origin;
+	-ms-transform-origin: $origin;
+	transform-origin: $origin;
+}
+
+@mixin placeholder {
+	&.placeholder {@content}
+	&:-moz-placeholder {@content}
+	&::-moz-placeholder {@content}
+	&:-ms-placeholder {@content}
+	&::-webkit-placeholder {@content}
+	&::placeholder {@content}
+}
+
+@mixin selection {
+	&:-moz-selection {@content}
+	&::-moz-selection {@content}
+	&:-ms-selection {@content}
+	&::-webkit-selection {@content}
+	&::selection {@content}
+}
+
+@mixin userSelect($type: text) {
+	-webkit-user-select: $type;
+	-moz-user-select: $type;
+	-ms-user-select: $type;
+	user-select: $type;
+}
+@mixin resetSelect($style: none) {
+	-moz-appearance: $style;
+	-webkit-appearance: $style;
+	appearance: $style;
+}
+
+@mixin scroll($bg: $mutedGray, $bar: $primary, $size: 10px, $radius: 0px) {
+	&::-webkit-scrollbar {
+	  width: $size;
+	  height: $size;
+	}
+	&::-webkit-scrollbar-button {
+	  width: 0px;
+	  height: 0px;
+	}
+	&::-webkit-scrollbar-thumb {
+	  background: $bar;
+	  border: 0;
+	  border-radius: $radius;
+	  height: 50px;
+	}
+	&::-webkit-scrollbar-track {
+	  background: $bg;
+	  border: 0;
+	  border-radius: $radius;
+	  height: 50px;
+	}
+}
+
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content; 
+	}
+	@-moz-keyframes #{$name} {
+		@content;
+	}
+	@-ms-keyframes #{$name} {
+		@content;
+	}
+	@keyframes #{$name} {
+		@content;
+	} 
+}
+
+@mixin flexWidth($val) {
+	min-width: $val;
+	max-width: $val;
+	flex: 1 1 $val;
+}
+@mixin flexHeight($val) {
+	min-height: $val;
+	max-height: $val;
+	flex: 1 1 $val;
+}
+
+@mixin u-showElement() {
+	@include opacity();
+	visibility: visible;
+}
+@mixin u-hideElement() {
+	@include opacity($opacity: 0);
+	visibility: hidden;
+}

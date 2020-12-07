@@ -1,0 +1,93 @@
+// Layout Colors
+$primaryLight: #0072ce;
+$primary: #00439c;
+$primaryDark: #053c86;
+
+$secondaryLight: #39393a;
+$secondary: #282829;
+$secondaryDark: #181819;
+
+$white: #fff;
+$white2: #fcfcfc;
+$white3: #f8f8f8;
+
+$mutedGray: #ededed;
+$lightGray: #e5e5e5;
+$mediumGray: #c5c5c5;
+$darkGray: #4c4c4c;
+$baseGray: #898989;
+
+$text: $white;
+$placeholderText: lighten($text, 15%);
+
+$defaultRadius: 4px;
+
+$feedbackSuccess: #1ca33d;
+$feedbackLoad: #eee;
+$feedbackError: #f05555;
+
+$whatsappPrimary: #25d366;
+$whatsappSecondary: #1eb456;
+
+// Sizes
+$containerWidth: 1450px;
+$containerBigWidth: 1920px;
+$maxRowWidth: 2560px;
+
+// media folders
+$media_assets : "../../media/img/assets/";
+$media_icons : "../../media/img/icons/";
+$media_content : "../../media/img/content/";
+//example: background: url(#{$media_assets}image.png);
+
+// fonts
+@font-face {
+	font-family: 'Bebas Neue';
+	src: url('../../media/type/BebasNeue-Light.eot');
+	src: url('../../media/type/BebasNeue-Light.eot?#iefix') format('embedded-opentype'),
+	url('../../media/type/BebasNeue-Light.woff2') format('woff2'),
+	url('../../media/type/BebasNeue-Light.woff') format('woff'),
+	url('../../media/type/BebasNeue-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Bebas Neue';
+	src: url('../../media/type/BebasNeue-Thin.eot');
+	src: url('../../media/type/BebasNeue-Thin.eot?#iefix') format('embedded-opentype'),
+	url('../../media/type/BebasNeue-Thin.woff2') format('woff2'),
+	url('../../media/type/BebasNeue-Thin.woff') format('woff'),
+	url('../../media/type/BebasNeue-Thin.ttf') format('truetype');
+	font-weight: 100;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Bebas Neue';
+	src: url('../../media/type/BebasNeue-Bold.eot');
+	src: url('../../media/type/BebasNeue-Bold.eot?#iefix') format('embedded-opentype'),
+	url('../../media/type/BebasNeue-Bold.woff2') format('woff2'),
+	url('../../media/type/BebasNeue-Bold.woff') format('woff'),
+	url('../../media/type/BebasNeue-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Bebas Neue';
+	src: url('../../media/type/BebasNeue-Regular.eot');
+	src: url('../../media/type/BebasNeue-Regular.eot?#iefix') format('embedded-opentype'),
+	url('../../media/type/BebasNeue-Regular.woff2') format('woff2'),
+	url('../../media/type/BebasNeue-Regular.woff') format('woff'),
+	url('../../media/type/BebasNeue-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+$fontFamily__default: 'Bebas Neue', 'Arial', 'Calibri', sans-serif;
+$fwLight: 300;
+$fwRegular: normal;
+$fwThin: 100;
+$fwBold: bold;

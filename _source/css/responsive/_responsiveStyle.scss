@@ -1,0 +1,265 @@
+// l-nav
+@media screen and (max-width: 540px) {
+    .l-nav  {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        &__container {
+            justify-content: center;
+        }
+        &__contentHero {
+            @include transition();
+            display: block !important;
+            background: $primary;
+            height: 100vh;
+            overflow: auto;
+            position: fixed;
+            right: -300px;
+            top: 0;
+            width: 250px;
+            max-width: 100%;
+            padding-bottom: 50px;
+            &.is-active {
+                right: 0;
+            }
+        }
+        &__menu {
+            border-bottom: 1px solid $primaryDark;
+            padding: 10px 0;
+            background: transparent;
+            > li, > li a {
+                width: 100%;
+                display: block;
+                text-align: right;
+            }
+            > li a {
+                padding: 10px 20px;
+                color: $white;
+            }
+        }
+
+        &__signUp,
+        &__ctaWhats {
+            display: none;
+        }
+        .c-hamburguer {
+            display: block;
+            &.is-active {
+                right: 260px;
+            }
+        }
+    }
+}
+
+// headers - toggle display
+@media screen and (max-width: 980px) {
+    .l-headerHomeMobile {
+        display: block !important;
+    }
+    .l-headerHomeDesk {
+        display: none !important;
+    }
+}
+
+// s-categories
+@media screen and (max-width: 1620px) {
+    .s-categories__tags a,
+    .s-categories__categories a {
+        //font-size: 16px;
+        padding: 0 12px;
+    }
+}
+@media screen and (max-width: 1535px) {
+    .s-categories__tags a,
+    .s-categories__categories a {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+    .s-categories__search {
+        input {
+            font-size: 14px;
+        }
+    }
+}
+@media screen and (max-width: 1360px) {
+    .s-categories__search {
+        @include flexWidth(260px);
+    }
+    .s-categories__tags {
+        margin-right: 0;
+        &:after {
+            display: none;
+        }
+    }
+}
+@media screen and (max-width: 1240px) {
+    .s-categories .u-containerFlex {
+        flex-wrap: wrap;
+    }
+    .s-categories__menu,
+    .s-categories__search {
+        @include flexWidth(100%);
+    }
+}
+
+// s-plans - general
+@media screen and (max-width: 1240px) {
+    .s-plans {
+        padding-top: 80px;
+        h1 {
+            max-width: 490px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+@media screen and (max-width: 1180px) {
+    .s-plans__list {
+        max-width: 460px;
+        display: flex;
+        margin: 40px auto 0 auto;
+        .swiper-slide {
+            max-width: 460px;
+            padding: 0 10px;
+        }
+    }
+}
+@media screen and (max-width: 640px) {
+    .s-plans__list {
+        margin-top: 20px;
+        max-width: 360px;
+        .swiper-slide {
+            max-width: 360px;
+            padding: 0 5px;
+        }
+    }
+}
+@media screen and (max-width: 400px) {
+    .s-plans__list {
+        max-width: 290px;
+        .swiper-slide {
+            max-width: 290px;
+            padding: 0;
+        }
+    }
+}
+
+// s-plans - figure fixed
+@media screen and (max-width: 1630px) {
+    .s-plans .u-container:before {
+        left: -75px;
+    }
+}
+@media screen and (max-width: 720px) {
+    .s-plans .u-container:before {
+        top: 100px;
+    }
+    .s-plans.js-customCss .u-container:before {
+        top: 90px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .s-plans .u-container:before {
+        display: none;
+    }
+}
+
+// s-gamesGrid
+@media screen and (max-width: 400px) {
+    .s-gamesGrid {
+        .swiper-button-next, .swiper-button-prev {
+            display: none;
+        }
+    }
+}
+
+// s-gamePage
+@media screen and (max-width: 1240px) {
+    .s-navGamePage {
+        position: relative !important;
+        top: 0 !important;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .s-gamePage {
+        .u-containerFlex {
+            max-width: 800px;
+            flex-wrap: wrap;
+        }
+        &__content {
+            @include flexWidth(100%);
+            padding-right: 0;
+            order: 2;
+        }
+        &__aside {
+            @include flexWidth(100%);
+            order: 1;
+        }
+        &__article {
+            &.--jogar {
+                position: relative;
+                top: 0;
+            }
+        }
+    }
+}
+@media screen and (max-width: 810px) {
+    .l-headerProduct {
+        .u-containerBig {
+            padding-bottom: 30px;
+        }
+        h1 {
+            text-align: left;
+        }
+    }
+    .s-navGamePage {
+        @include scroll($bg: $white);
+        margin-top: 0;
+        background: $secondary;
+        overflow: auto;
+        .u-containerBig {
+            padding: 0;
+        }
+        .productMenu {
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            padding: 0 15px;
+        }
+    }
+    .s-gamePage__article {
+        margin-top: 40px;
+        &:first-of-type {
+            margin-top: 40px;
+        }
+    }
+    .s-gamePage__article.--description {
+        .descriptionContent {
+            flex-wrap: wrap;
+            figure {
+                position: relative;
+                top: 0;
+                margin-bottom: 25px;
+            }
+            > div {
+                padding-left: 0;
+            }
+        }
+    }
+}
+@media screen and (max-width: 530px) {
+    .s-gamePage__article {
+        &.--relationed {
+            .c-responsiveGrid {
+                flex-wrap: wrap;
+                li {
+                    padding: 0;
+                    margin-bottom: 60px;
+                    &:last-of-type {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
